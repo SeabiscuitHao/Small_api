@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <style type="text/css">
+        td {min-width: 100px;text-align: center;}
+        li {display:inline-block;width: 30px;height:30px;border:1px solid #ccc;text-align: center;line-height: 30px}
+        img{width: 100px;height: 80px }
+    </style>
+</head>
+<body>	
+	<form action="index.php?c=message&a=doEdit" method="post">
+		<table border="1px solid:black">
+			<tr>
+				<td>id</td>
+				<td>title</td>
+				<td>author</td>
+				<td>content</td>
+				<td>img</td>
+				<td> </td>
+				<td> </td>
+			</tr>
+    		<?php  foreach ($res as $row) { ?>
+				<tr>
+					<td><?php echo $row['id']; ?></td>
+					<td><?php echo $row['title']; ?></td>
+					<td><?php echo $row['author']; ?></td>
+					<td><?php echo $row['content']; ?></td>
+					<td><img src="<?php echo $row['img']; ?>"></td>
+					<td><a href="index.php?c=message&a=edit&id=<?php echo $row['id']?>">edit</a></td>
+					<td><a href="index.php?c=message&a=del&id=<?php echo $row['id']?>">del</a></td>
+				</tr>
+   			 <?php } ?>
+		</table>
+		<div>
+			<ul>
+				<?php for($i=1;$i<=$pageCount;$i++) { ?>
+				<li><a href="index.php?c=blog&a=lists&p=<?php echo $i;?>"><?php echo $i; ?></a></li>
+				<?php } ?>
+			</ul>
+		</div>
+	</form>
+</body>
+</html>

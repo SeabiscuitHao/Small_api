@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action='index.php?c=message&a=doEdit' method="post">
+		<input type="hidden" name="id" value="<?php echo $res['id']; ?>">
+		标题：<br>
+		<input type="text" name="title" value="<?php echo $res['title']; ?>"><br>
+		作者：<br>
+		<input type="text" name="author" value="<?php echo $res['author']; ?>"><br>
+		内容：<br>
+		<textarea name="content">
+			<?php echo $res['content']; ?>
+		</textarea><br>
+		<input type="submit" name="提交">
+	</form>
+</body>
+</html>
